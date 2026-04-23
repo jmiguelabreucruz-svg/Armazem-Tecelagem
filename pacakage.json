@@ -1,0 +1,5 @@
+{
+  "name": "minha-app",
+  "main": "index.html",
+  "window": { "width": 800, "height": 600 }
+}
