@@ -1,0 +1,19 @@
+name: Gerar Executavel
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Build
+        run: |
+          npm install nwjs-builder-phoenix -g
+          build --tasks win-x64 .
+      - name: Guardar Ficheiro
+        uses: actions/upload-artifact@v4
+        with:
+          name: App-Pronta-Windows
+          path: dist/
